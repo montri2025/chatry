@@ -667,7 +667,19 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
-  "chatry.view.Main": []
+  "chatry.controller.Feed": [],
+  "chatry.controller.Register": [],
+  "chatry.view.Chat": [],
+  "chatry.view.Chatroom": [],
+  "chatry.view.Complain": [],
+  "chatry.view.Feed": [],
+  "chatry.view.Friend": [],
+  "chatry.view.Group": [],
+  "chatry.view.Home": [],
+  "chatry.view.Main": [],
+  "chatry.view.Mainchat": [],
+  "chatry.view.Register": [],
+  "chatry.view.Setting": []
 });
 
 Ext.ClassManager.addNameAliasMappings({
@@ -1399,8 +1411,40 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
+  "chatry.controller.Feed": [],
+  "chatry.controller.Register": [],
+  "chatry.view.Chat": [
+    "widget.chatpanel"
+  ],
+  "chatry.view.Chatroom": [
+    "widget.chatroompanel"
+  ],
+  "chatry.view.Complain": [
+    "widget.complainpanel"
+  ],
+  "chatry.view.Feed": [
+    "widget.feedpanel"
+  ],
+  "chatry.view.Friend": [
+    "widget.friendpanel"
+  ],
+  "chatry.view.Group": [
+    "widget.grouppanel"
+  ],
+  "chatry.view.Home": [
+    "widget.homepanel"
+  ],
   "chatry.view.Main": [
     "widget.main"
+  ],
+  "chatry.view.Mainchat": [
+    "widget.mainchatpanel"
+  ],
+  "chatry.view.Register": [
+    "widget.registerpanel"
+  ],
+  "chatry.view.Setting": [
+    "widget.settingpanel"
   ]
 });
 

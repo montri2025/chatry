@@ -16,10 +16,10 @@ Ext.application({
     requires: [
         'Ext.MessageBox'
     ],
-
-    views: [
-        'Main'
-    ],
+    controllers:['Feed','Register'],
+    views: ['Main','Home','Register','Feed'
+            ,'Complain','Friend','Group','Chatroom'
+            ,'Chat','Mainchat','Setting'],
 
     icon: {
         '57': 'resources/icons/Icon.png',

@@ -1,4 +1,21 @@
 {
+    "builds": {
+        "web": {"default": true},
+        "native": {
+            "packager": "cordova",
+            "cordova" : {
+                "config": {
+                    // Uncomment the line below and add the platforms you wish to build for
+                    "platforms": "ios android",
+
+                    "id": "com.rayoung.chat",
+                    "name": "chatry"
+                }
+            }
+        }
+    },
+
+                
     /**
      * The application's namespace, used by Sencha Command to generate classes
      */
@@ -45,6 +62,11 @@
         },
         {
             "path": "bootstrap.js",
+            "x-bootstrap": true
+        },
+        
+        {
+            "path": "lib/socket.io.js",
             "x-bootstrap": true
         },
         {
