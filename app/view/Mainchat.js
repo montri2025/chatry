@@ -6,6 +6,8 @@ Ext.define('chatry.view.Mainchat', {
         tabBarPosition: 'bottom',
         items: [
 				{
+					xtype:'peoplepanel'
+				},{
 					xtype:'friendpanel'
 				},
                 {

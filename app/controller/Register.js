@@ -10,6 +10,27 @@ Ext.define('chatry.controller.Register', {
            } 
         }
     }, 
+  init:function(){
+    	
+	  var config = Ext.getStore('Config').getAt(0);
+	  this.socket = io.connect(config.get('server'));  
+	  this.socket.on("update-people", function(data){
+		  var staff = Ext.getStore('Staff');
+		  var people = Ext.getStore('Staff');
+		  staff.removeAll();
+		  people.removeAll();
+		  Ext.iterate(data.people, function(key,obj) {
+			  if(config.get('username')!==obj.name){
+				  if(obj.type==2){
+					  staff.add({username:obj.name});  
+				  }else if(obj.type==1){
+					  people.add({username:obj.name});
+				  }
+			  }
+		  });
+		  
+	  });
+  },
   showChat:function(){
 	  if(!Ext.getCmp('chat-username').getValue()){
 		   Ext.Msg.alert('กรุณาระบุชื่อผู้ใช้งาน');
@@ -23,11 +44,11 @@ Ext.define('chatry.controller.Register', {
 	    }
 	  var config = Ext.getStore('Config');
 	  if (config.getAllCount() === 0) {
-		  this.socket.emit("joinserver",Ext.getCmp('chat-username').getValue(),1, device);
+		  this.socket.emit("joinserver",Ext.getCmp('chat-username').getValue(),2, device);
 			config.add(this.getRegisterForm().getValues());
 		} else {
 			if(config.findExact('username','')===0){
-				this.socket.emit("joinserver",Ext.getCmp('chat-username').getValue(),1, device);
+				this.socket.emit("joinserver",Ext.getCmp('chat-username').getValue(),2, device);
 			}
 			var record = config.getAt(0);
 			record.set('username',Ext.getCmp('chat-username').getValue());
@@ -47,17 +68,7 @@ Ext.define('chatry.controller.Register', {
 		  
 		  Ext.Viewport.animateActiveItem({xtype: 'mainchatpanel'}, {type:'slide', direction: 'left'});
 	  });
-	  this.socket.on("update-people", function(data){
-		  var staff = Ext.getStore('Staff');
-		  staff.removeAll();
-		  Ext.iterate(data.people, function(key,obj) {
-			  if(obj.type==2){
-				  staff.add({username:obj.name});  
-			  }
-			  
-		  });
-		  
-	  });
+	 
 	 	  
 	  //Ext.Viewport.animateActiveItem({xtype: 'mainchatpanel'}, {type:'slide', direction: 'left'});
   }  

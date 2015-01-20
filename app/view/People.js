@@ -1,10 +1,10 @@
-Ext.define('chatry.view.Friend',{
+Ext.define('chatry.view.People',{
 	extend:'Ext.navigation.View',
-	xtype:'friendpanel',
+	xtype:'peoplepanel',
 	requires:['Ext.List'],
 	config:{
-		title:'เจ้าหน้าที่',
-		iconCls:'team',
+		title:'ประชาชน',
+		iconCls:'user',
 		scrollable:true,
 		styleHtmlContent:true,
 		navigationBar: {hidden: true},
@@ -28,7 +28,7 @@ Ext.define('chatry.view.Friend',{
                 	   
 		       },{ 
 		    	   xtype:'list',
-		    	   store:'Staff' ,
+		    	   store:'People' ,
 		    	   itemId:'stafflist', 	
 		    	   itemTpl: '{username}'
 		       }
