@@ -17,12 +17,7 @@ Ext.define('chatry.controller.Feed', {
   showPost:function(list,index,element,record){
 	  //this.socket = new io.Socket('127.0.0.1', {port:3000});
 	  //console.log('conn');
-	  this.socket = new io.connect('127.0.0.1', {port:3000});
-	  var device = "desktop";
-	    if (navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i)) {
-	      device = "mobile";
-	    }
-	  this.socket.emit("joinserver", 'tong', device);
+	  
 	  
 	  this.getFeed().push({
 		  xtype:'panel',

@@ -16,11 +16,12 @@ Ext.application({
     requires: [
         'Ext.MessageBox'
     ],
-    controllers:['Feed','Register'],
+    controllers:['Feed','Register','Friend','Chat'],
     views: ['Main','Home','Register','Feed'
             ,'Complain','Friend','Group','Chatroom'
-            ,'Chat','Mainchat','Setting'],
-
+            ,'Chat','Mainchat','Setting','Emergency','Tracking'],
+    models:['Config','Staff','Chat','Message'],       
+    stores:['Config','Staff','Chat','Messages'],
     icon: {
         '57': 'resources/icons/Icon.png',
         '72': 'resources/icons/Icon~ipad.png',
@@ -43,6 +44,7 @@ Ext.application({
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
+        
         // Initialize the main view
         Ext.Viewport.add(Ext.create('chatry.view.Main'));
     },

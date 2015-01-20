@@ -4,7 +4,6 @@ Ext.define('chatry.view.Main', {
     requires: ['Ext.TitleBar'],
     config: {
         tabBarPosition: 'bottom',
-        
         items: [
 				{
 					xtype:'feedpanel'
@@ -13,7 +12,10 @@ Ext.define('chatry.view.Main', {
 					xtype:'complainpanel'
 				},
                 {
-                	xtype:'homepanel'
+                	xtype:'emergencypanel'
+                },
+                {
+                	xtype:'trackingpanel'
                 },
                 {
                 	xtype:'registerpanel'

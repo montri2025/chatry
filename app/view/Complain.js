@@ -20,25 +20,25 @@ Ext.define('chatry.view.Complain',{
 		    	        {
 		    	        	xtype:'textfield',
 		    	        	name:'name',
-		    	        	label:'ชื่อ'
+		    	        	placeHolder:'ชื่อ'
 		    	        		
 		    	        },
 		    	        {
 		    	        	xtype:'numberfield',
 		    	        	name:'idcard',
-		    	        	label:'เลขบัตรประชาชน'
+		    	        	placeHolder:'เลขบัตรประชาชน'
 		    	        		
 		    	        },
 		    	        {
 		    	        	xtype:'numberfield',
 		    	        	name:'tel',
-		    	        	label:'เบอร์มือถือ',
+		    	        	placeHolder:'เบอร์มือถือ',
 		    	        	required:true
 		    	        },
 		    	        {
 		    	        	xtype:'emailfield',
 		    	        	name:'email',
-		    	        	label:'อีเมลล์'
+		    	        	placeHolder:'อีเมลล์'
 		    	        }
 		    	        
 		    	 ]

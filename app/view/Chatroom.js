@@ -1,82 +1,108 @@
 Ext.define('chatry.view.Chatroom', {
-    extend: 'Ext.tab.Panel',
+    extend: 'Ext.navigation.View',
     xtype: 'chatroompanel',
-
     config: {
-       layout:'fit',
-        fullscreen: true,
-        items: 
-            {
-                
-                scrollable: true,
-                title:'ย้อน',
-                ui:'back',
-          
-                items: {
-                    docked: 'bottom',
-                    xtype: 'toolbar',
-                    items: [            				
-                            {
-                            	xtype: 'button',
-            					itemId: 'push',
-            					iconCls: 'camera',
-            					ui: 'action',
-            					flex: 0.5,
-            					handler: function() {
-            	                    if (!this.overlay) {
-            	                        this.overlay = Ext.Viewport.add({
-            	                            xtype: 'panel',
-            	                            modal: true,
-            	                            hideOnMaskTap: true,
-            	                            showAnimation: {
-            	                                type: 'popIn',
-            	                                duration: 250,
-            	                                easing: 'ease-out'
-            	                            },
-            	                            hideAnimation: {
-            	                                type: 'popOut',
-            	                                duration: 250,
-            	                                easing: 'ease-out'
-            	                            },
-            	                            centered: true,
-            	                            width: Ext.filterPlatform('ie10') ? '100%' : (Ext.os.deviceType == 'Phone') ? 260 : 400,
-            	                            height: Ext.filterPlatform('ie10') ? '30%' : Ext.os.deviceType == 'Phone' ? 220 : 400,
-            	                            styleHtmlContent: true,
-            	                            html: '&lt;p&gt;This is a modal, centered and floating panel. hideOnMaskTap is true by default so ' +
-            	                                'we can tap anywhere outside the overlay to hide it.&lt;/p&gt;',
-            	                            items: [
-            	                                {
-            	                                    docked: 'top',
-            	                                    xtype: 'toolbar',
-            	                                    title: 'Overlay Title'
-            	                                }
-            	                            ],
-            	                            scrollable: true
-            	                        });
-            	                    }
-            	                    this.overlay.show();
-            					}
-                            },
-                            
-            				{
+    	navigationBar: {hidden: true},
+    	
+   	  	
+    	items:[{
+
+	    	   xtype:'list',
+	    	   store:'Messages',
+	    	   disableSelection: true,
+	    	   	
+	    	   itemTpl:  new Ext.XTemplate(
+	    				'<tpl if="local">',
+	    				'	<div class="nick local">{nickname}</div>',
+	    				'	<div class="x-button x-button-confirm local"">',
+	    				'		<p class="x-button-label message">{message}</p>',
+	    				'	</div>',
+	    				'<tpl else>',
+	    				'	<div class="nick remote">{nickname}</div>',
+	    				'	<div class="x-button remote"">',
+	    				'		<p class="x-button-label message">{message}</p>',
+	    				'	</div>',
+	    				'</tpl>'
+	    			)
+    	},
+		       {
+		    	   docked: 'top',
+                   xtype: 'toolbar',
+                	   items: [
+       						{
+       							ui: 'back',
+       							text: 'back',
+       							itemId: 'backButton',
+       							handler: function() {
+       								//this.socket = new io.connect('127.0.0.1', {port:3000});
+       								//this.socket.on("disconnect", function(){});
+       								Ext.Viewport.animateActiveItem({xtype: 'mainchatpanel'}, {type:'slide', direction: 'left'});
+       							}
+       						}
+       					]
+                	   
+		       },{
+		    	   docked: 'bottom',
+                   xtype: 'toolbar', 
+                   items: [
+							{
+								xtype: 'button',
+								itemId: 'push',
+								iconCls: 'camera',
+								ui: 'action',
+								flex: 0.5,
+								handler: function() {
+							        if (!this.overlay) {
+							            this.overlay = Ext.Viewport.add({
+							                xtype: 'panel',
+							                modal: true,
+							                hideOnMaskTap: true,
+							                showAnimation: {
+							                    type: 'popIn',
+							                    duration: 250,
+							                    easing: 'ease-out'
+							                },
+							                hideAnimation: {
+							                    type: 'popOut',
+							                    duration: 250,
+							                    easing: 'ease-out'
+							                },
+							                centered: true,
+							                width: Ext.filterPlatform('ie10') ? '100%' : (Ext.os.deviceType == 'Phone') ? 260 : 400,
+							                height: Ext.filterPlatform('ie10') ? '30%' : Ext.os.deviceType == 'Phone' ? 220 : 400,
+							                styleHtmlContent: true,
+							                html: '&lt;p&gt;This is a modal, centered and floating panel. hideOnMaskTap is true by default so ' +
+							                    'we can tap anywhere outside the overlay to hide it.&lt;/p&gt;',
+							                items: [
+							                    {
+							                        docked: 'top',
+							                        xtype: 'toolbar',
+							                        title: 'Overlay Title'
+							                    }
+							                ],
+							                scrollable: true
+							            });
+							        }
+							        this.overlay.show();
+								}
+							},
+							{
             					xtype: 'textareafield',
+            					id:'chat-message',
             					height: 60,
             					flex: 4,
             					name: 'message'
             				}, {
             					xtype: 'button',
-            					itemId: 'send',
+            					itemId: 'sendMessage',
             					ui: 'action',
             					flex: 1,
-            					text: 'ส่ง',
-            					handler: function() {
-            						Ext.Msg.alert('Form Values');
-            					}	
+            					text: 'ส่ง'	
             				}
-            				
-            			]
-                }
-            }
+                           ]
+                           
+		       }
+        ],
            
             
         

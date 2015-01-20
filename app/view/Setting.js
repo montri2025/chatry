@@ -28,7 +28,7 @@ Ext.define('chatry.view.Setting',{
 		       },
 		       {
 		    	 xtype:'fieldset',
-		    	 title:'ลงทะเบียน',
+		    	 title:'ตั้งค่าผู้ใช้งาน',
 		    	 
 		    	 items:[
 		    	        {
