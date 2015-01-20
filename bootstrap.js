@@ -668,6 +668,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "chatry.store.Chat": [],
   "chatry.store.Config": [],
   "chatry.store.Messages": [],
+  "chatry.store.People": [],
   "chatry.store.Staff": [],
   "chatry.view.Chat": [],
   "chatry.view.Chatroom": [],
@@ -679,6 +680,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "chatry.view.Home": [],
   "chatry.view.Main": [],
   "chatry.view.Mainchat": [],
+  "chatry.view.People": [],
   "chatry.view.Register": [],
   "chatry.view.Setting": [],
   "chatry.view.Tracking": []
@@ -1414,6 +1416,7 @@ Ext.ClassManager.addNameAliasMappings({
   "chatry.store.Chat": [],
   "chatry.store.Config": [],
   "chatry.store.Messages": [],
+  "chatry.store.People": [],
   "chatry.store.Staff": [],
   "chatry.view.Chat": [
     "widget.chatpanel"
@@ -1444,6 +1447,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "chatry.view.Mainchat": [
     "widget.mainchatpanel"
+  ],
+  "chatry.view.People": [
+    "widget.peoplepanel"
   ],
   "chatry.view.Register": [
     "widget.registerpanel"
