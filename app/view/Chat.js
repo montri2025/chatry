@@ -1,5 +1,5 @@
 Ext.define('chatry.view.Chat',{
-	extend:'Ext.Panel',
+	extend:'Ext.navigation.View',
 	xtype:'chatpanel',
 	
 	config:{
@@ -7,6 +7,7 @@ Ext.define('chatry.view.Chat',{
 		iconCls:'chat',
 		scrollable:true,
 		styleHtmlContent:true,
+		navigationBar: {hidden: true},
 		items:[
 		       {
 		    	   docked: 'top',
@@ -22,11 +23,12 @@ Ext.define('chatry.view.Chat',{
        						}
        					]
                 	   
+		       },{ 
+		    	   xtype:'list',
+		    	   store:'Chat' ,
+		    	   itemId:'chatflist', 	
+		    	   itemTpl: '{name}'
 		       }
-        ],
-        html: [
-               '<div class="x-innerhtml" id="ext-element-523">เจ้าหน้าที่1</div>',
-               '<div class="x-innerhtml" id="ext-element-523">เจ้าหน้าที่4</div>'
-           ].join("")
+        ]
 	}
 });

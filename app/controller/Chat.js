@@ -24,9 +24,9 @@ Ext.define('chatry.controller.Chat', {
     		var record = chat.getAt(index);
     		//console.log(person.name);
     		if (person.name === "You") {
-    			message={local: false,nickname:'',message:msg};
+    			message={local: false,nickname:'',message:msg,chatwith:record.get('name')};
     		}else{
-    			message={local: true,nickname:person.name,message:msg};
+    			message={local: true,nickname:person.name,message:msg,chatwith:person.name};
     		}
     		
     		Ext.getStore('Messages').add(message);

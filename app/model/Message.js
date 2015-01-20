@@ -15,6 +15,9 @@ Ext.define('chatry.model.Message', {
 			}, {
 				name: 'message',
 				type: 'string'
+			},{
+				name:'chatwith',
+				type: 'string'
 			}
 		]
 	}

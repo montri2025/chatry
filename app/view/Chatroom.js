@@ -1,6 +1,17 @@
 Ext.define('chatry.view.Chatroom', {
     extend: 'Ext.navigation.View',
     xtype: 'chatroompanel',
+    initialize: function () {
+    	var chat = Ext.getStore('Chat');
+    	var index = chat.findExact('current',1);
+		var record = chat.getAt(index);
+    	Ext.getCmp('chatTitle').setTitle(record.get('name'));
+    	
+    	var sto = Ext.getStore('Messages');
+        // clear all existing filters
+        sto.clearFilter();
+        sto.filter('chatwith', record.get('name'));
+    },
     config: {
     	navigationBar: {hidden: true},
     	
@@ -13,21 +24,18 @@ Ext.define('chatry.view.Chatroom', {
 	    	   	
 	    	   itemTpl:  new Ext.XTemplate(
 	    				'<tpl if="local">',
-	    				'	<div class="nick local">{nickname}</div>',
-	    				'	<div class="x-button x-button-confirm local"">',
-	    				'		<p class="x-button-label message">{message}</p>',
-	    				'	</div>',
+	    				'	<img class="odd" src="http://www.gravatar.com/avatar/{gravatar}?s=28&d=mm" />',
+	    				'	<p class="triangle-right left"  style="display:inline-block"><span class="nickname">{nickname}:</span> {message}</p>',
 	    				'<tpl else>',
-	    				'	<div class="nick remote">{nickname}</div>',
-	    				'	<div class="x-button remote"">',
-	    				'		<p class="x-button-label message">{message}</p>',
-	    				'	</div>',
+	    				'	<p class="triangle-right right"  style="display:inline-block"><span class="nickname">{nickname}:</span> {message}</p>',
+	    				'	<img class="even" src="http://www.gravatar.com/avatar/{gravatar}?s=28&d=mm" />',
 	    				'</tpl>'
 	    			)
     	},
 		       {
 		    	   docked: 'top',
                    xtype: 'toolbar',
+                   id: 'chatTitle',
                 	   items: [
        						{
        							ui: 'back',
