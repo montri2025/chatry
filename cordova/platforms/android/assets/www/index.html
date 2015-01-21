@@ -82,6 +82,82 @@
     		font-size:0.9em;
     		line-height:1.4em;
     	}
+  .triangle-right.left:after {
+    border-color: transparent #78c0a8;
+    border-width: 7px 20px 0 0;
+    bottom: auto;
+    left: -20px;
+    top: 8px;
+}
+.triangle-right:after {
+    border-color: #f07818 transparent;
+    border-style: solid;
+    border-width: 50px 0 0 50px;
+    bottom: -5px;
+    content: "";
+    display: block;
+    height: 0;
+    left: 50px;
+    position: absolute;
+    width: 0;
+}
+*, *:after, *:before {
+    -moz-user-select: none;
+    box-sizing: border-box;
+}
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+.triangle-right.left {
+    background: none repeat scroll 0 0 #78c0a8;
+    margin-left: 50px;
+}
+.triangle-right {
+    background: none repeat scroll 0 0 #f07818;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px;
+    position: relative;
+}
+	
+ .triangle-right.right:after {
+    border-color: transparent #f07818;
+    border-width: 7px 0 0 20px;
+    bottom: auto;
+    left: auto;
+    right: -20px;
+    top: 8px;
+}
+.triangle-right:after {
+    border-color: #f07818 transparent;
+    border-style: solid;
+    border-width: 50px 0 0 50px;
+    bottom: -5px;
+    content: "";
+    display: block;
+    height: 0;
+    left: 50px;
+    position: absolute;
+    width: 0;
+}
+*, *:after, *:before {
+    -moz-user-select: none;
+    box-sizing: border-box;
+}
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+.triangle-right.right {
+    background: none repeat scroll 0 0 #f07818;
+    margin-right: 50px;
+}
+.triangle-right {
+    background: none repeat scroll 0 0 #f07818;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px;
+    position: relative;
+}	
     </style>
     <!-- The line below must be kept intact for Sencha Command to build your application -->
     <script type="text/javascript">(function(d){function l(b,d){var a=document.createElement("meta");a.setAttribute("name",b);a.setAttribute("content",d);p.appendChild(a)}var p=d.document.head||d.document.getElementsByTagName("head")[0],b=d.Ext;"undefined"==typeof b&&(d.Ext=b={});b.blink=function(d){var m=d.js||[];d=d.css||[];var a,h,c,g,n,j;navigator.userAgent.match(/IEMobile\/10\.0/)&&(a=document.createElement("style"),a.appendChild(document.createTextNode("@media screen and (orientation: portrait) {@-ms-viewport {width: 320px !important;}}@media screen and (orientation: landscape) {@-ms-viewport {width: 560px !important;}}")),
