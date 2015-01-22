@@ -18,6 +18,12 @@ Ext.define('chatry.model.Message', {
 			},{
 				name:'chatwith',
 				type: 'string'
+			},{
+				name:'photoname',
+				type:'string'
+			},{
+				name:'photo',
+				type:'boolean'
 			}
 		]
 	}
