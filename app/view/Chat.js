@@ -28,7 +28,10 @@ Ext.define('chatry.view.Chat',{
 		    	   xtype:'list',
 		    	   store:'Chat' ,
 		    	   itemId:'chatflist', 	
-		    	   itemTpl: '{name}'
+		    	   itemTpl: ['<div style="position: relative;">',
+		 		    	            '<img class="odd" style="display:inline; width:37px; position:absolute; margin:4px;padding:0px;top:-11px;left:-13px;" src="http://www.gravatar.com/avatar/{gravatar}?s=37&d=mm" />',
+				    	            '<p style="float: left;left: 44px;position: relative;font-size: 19px;margin: -6px;">{name}</p>',
+				    	            '</div>'].join('')
 		       }
         ]
 	}

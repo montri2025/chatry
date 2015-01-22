@@ -1,10 +1,6 @@
 Ext.define('chatry.view.Chatroom', {
     extend: 'Ext.navigation.View',
     xtype: 'chatroompanel',
-    requires: [
-               'Ext.device.Camera',
-               'Ext.Img'
-           ],
     initialize: function () {
     	var chat = Ext.getStore('Chat');
     	var index = chat.findExact('current',1);
@@ -28,11 +24,11 @@ Ext.define('chatry.view.Chatroom', {
 	    	   	
 	    	   itemTpl:  new Ext.XTemplate(
 	    				'<tpl if="local">',
-	    				'	<img class="odd" src="http://www.gravatar.com/avatar/{gravatar}?s=28&d=mm" />',
-	    				'	<p class="triangle-right left"  style="display:inline-block"><span class="nickname">{nickname}:</span> {message}</p>',
+	    				'	<img class="odd" style=" width: 32px; margin-top: -9px; margin-left: -9px;" src="http://www.gravatar.com/avatar/{gravatar}?s=28&d=mm" />',
+	    				'<span class="nickname" style="position: absolute;font-size: 9px;display: inline-block;margin-top: 28px;margin-left: -33px;">{nickname}</span>',
+	    				'	<p class="triangle-right left"  style="display:inline-block;left: 10px;margin: 0px -36px 0px 7px;font-size: 16px;"> {message}</p>',
 	    				'<tpl else>',
-	    				'	<p class="triangle-right right"  style="display:inline-block"><span class="nickname">{nickname}:</span> {message}</p>',
-	    				'	<img class="even" src="http://www.gravatar.com/avatar/{gravatar}?s=28&d=mm" />',
+	    				'	<p class="triangle-right right"  style="display:inline-block;margin: -8px;position: absolute;right: 38px;">{message}</p>',
 	    				'</tpl>'
 	    			)
     	},
