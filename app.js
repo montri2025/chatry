@@ -19,7 +19,8 @@ Ext.application({
     controllers:['Feed','Register','Friend','Chat'],
     views: ['Main','Home','Register','Feed'
             ,'Complain','Friend','Group','Chatroom'
-            ,'Chat','Mainchat','Setting','Emergency','Tracking'],
+            ,'Chat','Mainchat','Setting','Emergency'
+            ,'Tracking'],
     models:['Config','Staff','Chat','Message'],       
     stores:['Config','Staff','Chat','Messages'],
     icon: {

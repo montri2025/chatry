@@ -5,6 +5,7 @@ Ext.define('chatry.view.Chat',{
 	config:{
 		title:'สนทนา',
 		iconCls:'chat',
+		badgeText:10,
 		scrollable:true,
 		styleHtmlContent:true,
 		navigationBar: {hidden: true},

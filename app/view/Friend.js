@@ -30,7 +30,7 @@ Ext.define('chatry.view.Friend',{
 		    	   xtype:'list',
 		    	   store:'Staff' ,
 		    	   itemId:'stafflist', 	
-		    	   itemTpl: '{username}'
+		    	   itemTpl: '{username}<span class="x-badge" id="ext-element-362">10</span>'
 		       }
         ],
         

@@ -1,6 +1,10 @@
 Ext.define('chatry.view.Chatroom', {
     extend: 'Ext.navigation.View',
     xtype: 'chatroompanel',
+    requires: [
+               'Ext.device.Camera',
+               'Ext.Img'
+           ],
     initialize: function () {
     	var chat = Ext.getStore('Chat');
     	var index = chat.findExact('current',1);
@@ -55,44 +59,10 @@ Ext.define('chatry.view.Chatroom', {
                    items: [
 							{
 								xtype: 'button',
-								itemId: 'push',
+								itemId: 'imageCapture',
 								iconCls: 'camera',
 								ui: 'action',
-								flex: 0.5,
-								handler: function() {
-							        if (!this.overlay) {
-							            this.overlay = Ext.Viewport.add({
-							                xtype: 'panel',
-							                modal: true,
-							                hideOnMaskTap: true,
-							                showAnimation: {
-							                    type: 'popIn',
-							                    duration: 250,
-							                    easing: 'ease-out'
-							                },
-							                hideAnimation: {
-							                    type: 'popOut',
-							                    duration: 250,
-							                    easing: 'ease-out'
-							                },
-							                centered: true,
-							                width: Ext.filterPlatform('ie10') ? '100%' : (Ext.os.deviceType == 'Phone') ? 260 : 400,
-							                height: Ext.filterPlatform('ie10') ? '30%' : Ext.os.deviceType == 'Phone' ? 220 : 400,
-							                styleHtmlContent: true,
-							                html: '&lt;p&gt;This is a modal, centered and floating panel. hideOnMaskTap is true by default so ' +
-							                    'we can tap anywhere outside the overlay to hide it.&lt;/p&gt;',
-							                items: [
-							                    {
-							                        docked: 'top',
-							                        xtype: 'toolbar',
-							                        title: 'Overlay Title'
-							                    }
-							                ],
-							                scrollable: true
-							            });
-							        }
-							        this.overlay.show();
-								}
+								flex: 0.5
 							},
 							{
             					xtype: 'textareafield',

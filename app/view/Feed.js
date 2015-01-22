@@ -8,7 +8,7 @@ Ext.define('chatry.view.Feed',{
 		
 		items:{
 			xtype:'list',
-			itemTpl:'{title}',
+			itemTpl:'{title}<div class="x-unsized x-list-disclosure" id="ext-component-24" style=""></div>',
 			store:{
 				autoLoad:true,
 				fields:['title','author','content'],

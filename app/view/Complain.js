@@ -2,7 +2,7 @@ Ext.define('chatry.view.Complain',{
 	extend:'Ext.form.Panel',
 	xtype:'complainpanel',
 	requires:['Ext.form.FieldSet',
-	          'Ext.field.Email','Ext.field.Number'],
+	          'Ext.field.Email','Ext.field.Number','Ext.device.Notification'],
 	config:{
 		title:'ร้องทุกข์',
 		iconCls:'compose',
@@ -45,10 +45,10 @@ Ext.define('chatry.view.Complain',{
 		       },
 		       {
 		    	   xtype:'button',
-		    	   text:'ตกลง',
+		    	   text:'vibrate',
 		    	   ui:'confirm',
 		    	   handler:function(){
-		    		   
+		    		   navigator.notification.beep(2);
 		    	   }
 		       }
 		]
